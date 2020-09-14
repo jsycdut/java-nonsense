@@ -1,12 +1,11 @@
 package com.piperstack;
 
-import java.util.Map;
-
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.lucene.util.RamUsageEstimator;
 import org.junit.Test;
@@ -33,13 +32,12 @@ public class ObjectSizeTest {
         String size = RamUsageEstimator.humanSizeOf(v);
         System.out.println(size);
 
-        System.out.println(RamUsageEstimator.sizeOf("HelloWorld"));
-        System.out.println(RamUsageEstimator.sizeOf(""));
-        System.out.println("size of empty hashmap create by new HashMap() => "  + RamUsageEstimator.sizeOf(new HashMap<>()));
-        System.out.println("size of empty arraylist create by new ArrayList<>() => " + RamUsageEstimator.sizeOf(new ArrayList<>()));
-        System.out.println("size of empty string  => " + RamUsageEstimator.sizeOf(""));
-        System.out.println("size of Integer => " + RamUsageEstimator.sizeOf(Integer.valueOf(0)));
-        System.out.println("size of Long => " + RamUsageEstimator.sizeOf(Long.valueOf(0L)));
+        System.out.println("size of empty hashmap create by new HashMap() => "  + RamUsageEstimator.humanSizeOf(new HashMap<>()));
+        System.out.println("size of empty arraylist create by new ArrayList<>() => " + RamUsageEstimator.humanSizeOf(new ArrayList<>()));
+        System.out.println("size of empty string  => " + RamUsageEstimator.humanSizeOf(""));
+        System.out.println("size of HelloWrold!  => " + RamUsageEstimator.humanSizeOf("HelloWrold!"));
+        System.out.println("size of Integer => " + RamUsageEstimator.humanSizeOf(Integer.valueOf(0)));
+        System.out.println("size of Long => " + RamUsageEstimator.humanSizeOf(Long.valueOf(0L)));
         assertTrue(true);
     }
 
