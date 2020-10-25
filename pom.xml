@@ -28,6 +28,7 @@
     <module>spring-boot-trail</module>
     <module>java-object-tutorial</module>
     <module>java-io-trial</module>
+    <module>netty-in-action</module>
   </modules>
   <build>
     <plugins>
