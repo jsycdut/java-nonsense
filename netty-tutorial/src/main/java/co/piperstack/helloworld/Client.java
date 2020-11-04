@@ -3,10 +3,7 @@ package co.piperstack.helloworld;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.channel.ChannelInitializer;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -26,7 +23,16 @@ public class Client {
                         }
                     });
             System.out.println("client is ready");
-            ChannelFuture channelFuture = bootstrap.connect("127.0.0.1", 9098).sync();
+            ChannelFuture channelFuture = bootstrap.connect("127.0.0.1", 9098).addListener(new ChannelFutureListener() {
+                @Override
+                public void operationComplete(ChannelFuture future) throws Exception {
+                    if (future.isSuccess()) {
+                        System.out.println("client connect success");
+                    } else {
+                        System.out.println("client connect failed");
+                    }
+                }
+            }).sync();
             channelFuture.channel().closeFuture().sync();
         } finally {
             clientEventLoopGroup.shutdownGracefully();

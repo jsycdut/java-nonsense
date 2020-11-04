@@ -30,6 +30,8 @@
     <module>netty-tutorial</module>
     <module>java-io-trial</module>
     <module>netty-in-action</module>
+      <module>java-collection-tutorial</module>
+    <module>distributed-lock-tutorial</module>
   </modules>
   <build>
     <plugins>
